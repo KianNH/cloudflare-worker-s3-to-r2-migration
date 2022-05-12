@@ -1,0 +1,13 @@
+name = "s3-to-r2"
+compatibility_date = "2022-05-12"
+main = "./src/index.ts"
+
+[vars]
+AWS_DEFAULT_REGION = "eu"
+AWS_SERVICE = "s3"
+AWS_S3_BUCKET_SCHEME = 'https:'
+AWS_S3_BUCKET = "example-s3-bucket.storage.googleapis.com"
+
+[[r2_buckets]]
+binding = 'R2'
+bucket_name = 's3-migration'

@@ -1,0 +1,27 @@
+{
+  "name": "s3-to-r2",
+  "version": "1.0.0",
+  "description": "Cloudflare Worker to progressively migrate S3 buckets to R2.",
+  "main": "dist/worker.js",
+  "scripts": {
+    "build": "webpack",
+    "format": "prettier --write  '*.{json,js}' 'src/**/*.{js,ts}' 'test/**/*.{js,ts}'",
+    "lint": "eslint --max-warnings=0 src && prettier --check '*.{json,js}' 'src/**/*.{js,ts}' 'test/**/*.{js,ts}'",
+    "test": "jest --config jestconfig.json --verbose"
+  },
+  "author": "author",
+  "license": "MIT OR Apache-2.0",
+  "eslintConfig": {
+    "root": true,
+    "extends": [
+      "typescript",
+      "prettier"
+    ]
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^3.10.0",
+    "aws4fetch": "^1.0.13",
+    "prettier": "^1.18.2",
+    "wrangler": "^2.0.3"
+  }
+}
