@@ -61,14 +61,9 @@ export default {
             return new Response(s3Body[1], s3Object);
         }
 
-        const headers: Record<string, string> = {}
-        if (obj.httpMetadata.contentType) headers['content-type'] = obj.httpMetadata.contentType;
-        if (obj.httpMetadata.contentEncoding) headers['content-encoding'] = obj.httpMetadata.contentEncoding;
-        if (obj.httpMetadata.contentDisposition) headers['content-disposition'] = obj.httpMetadata.contentDisposition;
-        if (obj.httpMetadata.contentLanguage) headers['content-language'] = obj.httpMetadata.contentLanguage;
-        if (obj.httpMetadata.cacheControl) headers['cache-control'] = obj.httpMetadata.cacheControl;
-        if (obj.httpMetadata.cacheExpiry) headers['expires'] = obj.httpMetadata.cacheExpiry.toUTCString();
-
+        const headers = new Headers()
+        obj.writeHttpMetadata(headers)
+        headers.set('etag', obj.httpEtag)
         return new Response(obj.body, {
             headers
         });
