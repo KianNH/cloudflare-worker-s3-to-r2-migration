@@ -7,3 +7,5 @@ to Cloudflare R2.
 
 When a file is requested, it will check if it exists in R2 and return it if it does - if not, it'll fetch it from
 your object store and both return that response instantly whilst pushing it into R2 in the background.
+
+For implementing features such as conditionals or ranges, take a look at this project: https://github.com/kotx/render
